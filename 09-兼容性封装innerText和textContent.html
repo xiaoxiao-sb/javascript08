@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button>读取</button>
+		<button>设置</button>
+		<div id="box">哈哈</div>
+		<p id="p1">我是段落啊哈哈哈哈</p>
+		<script type="text/javascript">
+			/*
+			 * innerText属性是微软给ie浏览器制定的,后来被所有浏览器广泛使用,但是在之前的某个
+			 * 版本的firefox浏览器不能使用此属性.
+			 * textContent属性是后来出现的属性,功能和innerText一样,所有高级浏览器可以使用,
+			 * 低版本浏览器不能使用
+			 * 
+			 * 浏览器:
+			 * 高级浏览器: chrome  firefox  ie9以上
+			 * 低版本浏览器: ie 6 7 8
+			 */
+			//获取设置
+			var btns = document.getElementsByTagName('button');
+			var box  = document.getElementById('box');
+			var p1 = document.getElementById('p1');
+			btns[0].onclick = function(){
+//				console.log(box.innerText);
+//				console.log(box.textContent);
+				//var str = getTextContent(box);
+				
+				//console.log(str);
+				console.log(getTextContent(p1));
+//				var  str02 = box.innerText;
+//				var str03 = box.textContent;
+			}
+			
+			btns[1].onclick = function(){
+//				box.textContent = '嘿嘿';
+				//setTextContent(box,'呵呵');
+				setTextContent(p1,'ppppppp');
+			}
+			// 让所有的高级浏览器使用textContent,让ie低版本使用innerText
+			/**
+			 * 兼容性封装读取元素内容
+			 * @param {元素对象} obj
+			 */
+			function getTextContent(obj){
+				if(obj.textContent){
+//					alert('高级');
+					return obj.textContent;
+				}else{
+//					alert('垃圾');
+					return obj.innerText;
+				}
+			}
+			
+			/**
+			 * 兼容性封装设置元素内容
+			 * @param {元素对象} obj
+			 * @param {文本内容} txt
+			 */
+			function setTextContent(obj,txt){
+				if(obj.textContent){
+//					alert('高级');
+					obj.textContent = txt;
+				}else{
+//					alert('垃圾');
+					obj.innerText = txt;
+				}
+			}
+		</script>
+	</body>
+</html>
+

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+			<li>9</li>
+			<li>10</li>
+		</ul>
+		<script type="text/javascript">
+			var lis = document.getElementsByTagName('li');
+
+			
+			for(var i = 0; i < lis.length; i++) {
+				//默认设置
+				if(i % 2 == 0) {
+					lis[i].style.backgroundColor = 'red';
+				} else {
+					lis[i].style.backgroundColor = 'blue';
+				}
+
+				//动态的给对象添加属性,将j的值存储
+				lis[i].num =i;
+
+				//绑定移入
+				lis[i].onmouseover = function() {
+					//					alert(j);
+					//this.style.backgroundColor = 'yellow';
+					//将事件源对象中的num值取出和2进行取余
+					if(this.num % 2 == 0) {
+						this.style.backgroundColor = 'yellow';
+					} else {
+						this.style.backgroundColor = 'green';
+					}
+				}
+
+				//绑定移出
+				lis[i].onmouseout = function() {
+					if(this.num % 2 == 0) {
+						this.style.backgroundColor = 'red';
+					} else {
+						this.style.backgroundColor = 'blue';
+					}
+
+				}
+			}
+		</script>
+	</body>
+
+</html>

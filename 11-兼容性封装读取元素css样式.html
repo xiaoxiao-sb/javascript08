@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 800px;
+				background: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+			对象.style.属性只能设置和读取行内样式,不能读取选择器中设置的样式
+			getComputedStyle所有高级浏览器能使用,ie低版本不能使用
+			currentStyle 所有ie都能用
+		-->
+		<button id="btn">读取</button>
+		<div id="box" style="width:500px;"></div>
+		<script type="text/javascript">
+			var btn = document.getElementById('btn');
+			var box = document.getElementById('box');
+			
+			btn.onclick = function(){
+//				box.style.width = '500px';
+//				console.log(box.style.width);
+//				console.log(box.currentStyle.width);
+//				console.log(getComputedStyle(box).width);
+//				if()
+//				console.log(getComputedStyle);
+//				console.log(window.getComputedStyle);
+
+
+// 让高级浏览器getComputedStyle,ie低版本678 currentStyle
+//				if(window.getComputedStyle){
+//					//alert('真高级');
+//					console.log(getComputedStyle(box).width);
+//				}else{
+//					//alert('真辣鸡');
+//					console.log(box.currentStyle.width);
+//				}
+				alert(getStyleCss(box,'width'));
+				console.log(getComputedStyle(box));
+			}
+			
+			function getStyleCss(obj,pro){
+				console.log(pro);
+				if(window.getComputedStyle){
+					//alert('真高级');
+					return getComputedStyle(obj)[pro];
+				}else{
+					//alert('真辣鸡');
+					return obj.currentStyle[pro];
+				}
+			}
+			
+			
+			var jay = new Object();
+			jay.name = '周杰伦';
+			jay["age"] = 41;
+		</script>
+	</body>
+</html>

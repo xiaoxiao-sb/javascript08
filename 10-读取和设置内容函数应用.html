@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 200px;
+				border: 1px solid #000;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn">设置</button>
+		<div id="box01">我是div01</div>
+		<div id="box02"></div>
+		<script type="text/javascript">
+			var btn = document.getElementById('btn');
+			var box01 = document.getElementById('box01');
+			var box02 = document.getElementById('box02');
+			
+			btn.onclick = function(){
+				var str = getTextContent(box01);
+				setTextContent(box02,str);
+			}
+						/**
+			 * 兼容性封装读取元素内容
+			 * @param {元素对象} obj
+			 */
+			function getTextContent(obj){
+				if(obj.textContent){
+//					alert('高级');
+					return obj.textContent;
+				}else{
+//					alert('垃圾');
+					return obj.innerText;
+				}
+			}
+			
+			/**
+			 * 兼容性封装设置元素内容
+			 * @param {元素对象} obj
+			 * @param {文本内容} txt
+			 */
+			function setTextContent(obj,txt){
+				if(obj.textContent){
+//					alert('高级');
+					obj.textContent = txt;
+				}else{
+//					alert('垃圾');
+					obj.innerText = txt;
+				}
+			}
+	
+		</script>
+	</body>
+</html>

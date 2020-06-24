@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--第二种-->
+		<!--<a href="http://www.taobao.com" id="taobao" onclick="sum();return false;">淘宝</a>-->
+		<a href="http://www.taobao.com" id="taobao" onclick="return sum();">淘宝</a>
+		<script type="text/javascript">
+			var taobao = document.getElementById('taobao');
+			//第一种:
+//			taobao.onclick = function(){
+//				
+//				return false;
+//			}
+//			taobao.onclick = function(){
+//				sum();
+//				
+//			}
+		
+			/*
+			 * 函数在没有return ,默认返回一个undefined
+			 */
+//			console.log(alert('哈哈'));
+//			console.log(prompt('嘿嘿'));
+
+//			function fn(){
+////				var bool = sum();
+////				console.log(bool);
+//				return sum();
+//			}
+			function sum(){
+				return false;
+			}
+//			
+//			console.log(fn());
+		</script>
+	</body>
+</html>

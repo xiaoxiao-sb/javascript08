@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			
+			body {
+				background: #ccc;
+			}
+			
+			.box {
+				width: 500px;
+				height: 400px;
+			/*	background: pink;*/
+				margin: 100px auto 0;
+			}
+			
+			img {
+				display: block;
+			}
+			.box ul li{
+				float:left;
+				margin-right: 20px;
+			}
+			.box ul{
+				overflow: hidden;
+				margin-bottom: 20px;
+			}
+			.box h2{
+				margin-bottom: 20px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box" id="box">
+			<h2>美女画廊</h2>
+			<ul>
+				<li>
+					<a href="images/1.jpg">
+						<img src="images/1-small.jpg" width="100" />
+					</a>
+				</li>
+				<li>
+					<a href="images/2.jpg">
+						<img src="images/2-small.jpg" width="100" />
+					</a>
+				</li>
+				<li>
+					<a href="images/3.jpg">
+						<img src="images/3-small.jpg" width="100" />
+					</a>
+				</li>
+				<li>
+					<a href="images/4.jpg">
+						<img src="images/4-small.jpg" width="100" />
+					</a>
+				</li>
+			</ul>
+			<img src="images/placeholder.png" width="400" height="250" border="1" id="imgBig"/>
+		</div>
+		<div class="banner">
+			<a href="##">我是别人的a</a>
+		</div>
+		<script type="text/javascript">
+			//获取box
+			var box = document.getElementById('box');
+			//获取box下后代a
+			var aimgs = box.getElementsByTagName('a');
+			//获取大img
+			var imgBig = document.getElementById('imgBig');
+			console.log(aimgs);
+			//循环绑定事件
+			for (var i = 0; i < aimgs.length; i++) {
+				aimgs[i].onclick = function(){
+					//获取自身href属性值
+					//var srcString = this.href;
+					
+					//将值赋值给大img的src
+					//imgBig.src = srcString;
+					imgBig.src = this.href;
+					return false;
+				}
+			}
+		</script>
+	</body>
+
+</html>
